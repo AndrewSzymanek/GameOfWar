@@ -1,5 +1,4 @@
 package com.warmongers.war;
 
-public class Deck {
-
+public class CardTable {
 }
