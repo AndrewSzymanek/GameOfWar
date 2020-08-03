@@ -1,5 +1,9 @@
 package com.warmongers.war;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 public enum Deck {
 
     TWO_SPADES(2),
@@ -65,8 +69,6 @@ public enum Deck {
         this.value = value;
     }
 
-
-    // Collections.shuffle()
 
     //getter/accessor
     public int getValue() {

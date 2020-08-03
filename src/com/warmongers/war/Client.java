@@ -13,7 +13,6 @@ public class Client {
         System.out.println("\t3.  18-Cards game");
         System.out.print("\tMake selection: ");
 
-
         newGame.setupGame(newGame);
     }
 }
