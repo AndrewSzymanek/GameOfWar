@@ -1,11 +1,30 @@
 package com.warmongers.war;
 
-public interface Player {
+import java.util.ArrayList;
 
-    int cardCount = 0;
+public abstract class Player {
 
-    void flipCard();
-    void collectCardsWon();
-    void tieSequence();
-    void countCards();
+
+
+    public int count = 0;
+
+    public ArrayList<Deck> playerCards;
+
+    public Deck flipCard() {
+        return playerCards.get(0);
+    }//default= flip top card
+
+
+
+    public void tieSequence() {
+
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
 }

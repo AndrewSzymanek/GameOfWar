@@ -18,6 +18,7 @@ public class Game {
                 User user = new User(userCards);
                 ArrayList<Deck> computerCards = splitDeck(cardsToList()).get(1);
                 Computer computer = new Computer(computerCards);
+                CardTable cardTable = new CardTable(user, computer);
             }
             else
             {
