@@ -1,8 +1,8 @@
 package com.warmongers.war;
 
 public class Game {
-    int HIGH_LEVEL = 1;
-    int LOW_LEVEL = 3;
+    private static final int HIGH_LEVEL = 1;
+    private static final int LOW_LEVEL = 3;
 
     public boolean setupGame(char selection)
     {
@@ -11,8 +11,7 @@ public class Game {
             int mySelection = Integer.parseInt(String.valueOf(selection));
             if (mySelection >= HIGH_LEVEL && mySelection <= LOW_LEVEL)
             {
-              //  TODO: fix Deck access
-               // Deck gameSelection = new Deck(mySelection);
+              //  TODO: call method to pass in mySelection for amount of cards
                 return true;
             }
             else

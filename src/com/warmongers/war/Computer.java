@@ -1,7 +1,10 @@
 package com.warmongers.war;
 
+import java.util.Collection;
+
 public class Computer implements Player {
 
+    Collection<Deck> computerCards;
 
     @Override
     public void flipCard() {
@@ -22,4 +25,5 @@ public class Computer implements Player {
     public void countCards() {
 
     }
+
 }

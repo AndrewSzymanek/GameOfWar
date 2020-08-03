@@ -3,7 +3,7 @@ package com.warmongers.war;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class warmongers {
+public class Client {
     public static void main(String[] args) throws IOException
     {
         Game newGame = new Game();
@@ -13,6 +13,7 @@ public class warmongers {
         System.out.println("\t2.  36-Cards game");
         System.out.println("\t3.  18-Cards game");
         System.out.print("\tMake selection: ");
+
 
         char selection;
         do
@@ -24,4 +25,7 @@ public class warmongers {
 
         System.out.println("\tYou have selected Game " + selection);
     }
+
 }
+    // should shuffle, deal cards at this point
+

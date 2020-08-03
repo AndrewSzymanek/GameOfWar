@@ -56,11 +56,6 @@ public enum Deck {
     ACE_DIAMONDS(14);
 
 
-
-
-
-
-
     //variables
     private int value;
 
