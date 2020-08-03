@@ -1,13 +1,12 @@
 package com.warmongers.war;
 
-public enum Cards {
-}
+//public enum Cards {
+//}
 
+public class Cards {
+    public int value;
 
-
-
-
-//public enum Card {
+    //public enum Card {
 //    ACE_SPADES(11),
 //    TWO_SPADES(2),
 //    THREE_SPADES(3),
@@ -18,9 +17,9 @@ public enum Cards {
 //    private int value;
 //
 //    // ctor
-//    Card(int value) {
-//        this.value = value;
-//    }
+    public Cards(int value) {
+        this.value = value;
+    }
 //
 //    public int getValue() {
 //        return this.value;
@@ -30,3 +29,5 @@ public enum Cards {
 //Collections.shuffle();
 //
 //        EnumSet class, which is a subset of all the values in an enum
+
+}
