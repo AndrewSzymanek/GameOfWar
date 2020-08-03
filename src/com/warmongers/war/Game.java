@@ -11,7 +11,8 @@ public class Game {
             int mySelection = Integer.parseInt(String.valueOf(selection));
             if (mySelection >= HIGH_LEVEL && mySelection <= LOW_LEVEL)
             {
-                Cards gameSelection = new Cards(mySelection);
+              //  TODO: fix Deck access
+               // Deck gameSelection = new Deck(mySelection);
                 return true;
             }
             else
