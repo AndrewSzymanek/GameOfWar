@@ -13,9 +13,11 @@ public class Game {
         {
             if (mySelection >= HIGH_LEVEL && mySelection <= LOW_LEVEL)
             {
-                System.out.println("yay it works");
-                User player1 = new User();
-                Computer computer = new Computer();
+                System.out.println("Prepare for War");
+                ArrayList<Deck> userCards = splitDeck(cardsToList()).get(0);
+                User user = new User(userCards);
+                ArrayList<Deck> computerCards = splitDeck(cardsToList()).get(1);
+                Computer computer = new Computer(computerCards);
             }
             else
             {
@@ -58,5 +60,23 @@ public class Game {
             return new ArrayList<Deck>(cardsToList().subList(0,18));
         }
         return cardsToList();
+    }
+
+    public ArrayList<ArrayList<Deck>> splitDeck(ArrayList<Deck> deck){
+        deck = cardsToList();
+        ArrayList<ArrayList<Deck>> cards = new ArrayList<>();
+        ArrayList<Deck> userDeck = new ArrayList<>();
+        ArrayList<Deck> computerDeck = new ArrayList<>();
+        for(int i = 0; i < deck.size(); i++){
+            if(i % 2 == 0){
+                userDeck.add(deck.get(i));
+            }
+            if(i % 2 != 0){
+                computerDeck.add(deck.get(i));
+            }
+        }
+        cards.add(userDeck);
+        cards.add(computerDeck);
+        return cards;
     }
 }
