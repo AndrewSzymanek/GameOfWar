@@ -74,5 +74,4 @@ public enum Deck {
     public int getValue() {
         return this.value;
     }
-
 }

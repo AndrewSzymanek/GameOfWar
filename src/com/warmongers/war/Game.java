@@ -9,6 +9,7 @@ public class Game {
 
     public void setupGame(Game game)
     {
+
        int mySelection = selection(game);
         try
         {
@@ -39,11 +40,16 @@ public class Game {
     }
 
     public int selection(Game game) {
-            char selection;
-            Scanner s = new Scanner(System.in);
-            selection = s.next().charAt(0);
-            System.out.println("\tYou have selected Game " + selection);
-            return Integer.parseInt(String.valueOf(selection));
+
+        System.out.println("Welcome to WarMongers card game \n Kindly select any of the Game plans.");
+        System.out.println("\t1.  52-Cards game ");
+        //t2.  36-Cards game t3.  18-Cards game
+        System.out.print("\tMake selection: ");
+        char selection;
+        Scanner s = new Scanner(System.in);
+        selection = s.next().charAt(0);
+        System.out.println("\tYou have selected Game " + selection);
+        return Integer.parseInt(String.valueOf(selection));
     }
 
     public ArrayList<Deck> cardsToList(){
@@ -83,16 +89,4 @@ public class Game {
         cards.add(computerDeck);
         return cards;
     }
-//    public void endGame() {
-//        System.out.println("Would you like to Play Again?  Type Yes and Enter");
-//        try{System.in.read();
-//            String answer = String.valueOf(System.in.read());
-//            if (answer.equals("Yes")) {
-//                Game game = new Game();
-//                setupGame(game);
-//            }
-//        }
-//        catch (Exception e){}
-//
-//    }
 }

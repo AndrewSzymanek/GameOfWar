@@ -28,21 +28,25 @@ public class CardTable {
         } else {
             Deck userCard = player1.flipCard();
             Deck computerCard = player2.flipCard();
+            System.out.println("User flipped: "+ userCard);
+            System.out.println("Computer flipped: " + computerCard);
+            // display cards
             int userCardValue = userCard.getValue();
             int computerCardValue = computerCard.getValue();
             if (userCardValue == computerCardValue) {
+                System.out.println("You tied!");
                 player1.playerCards.remove(userCard);
                 player2.playerCards.remove(computerCard);
-                compareCards();
+                //compareCards();
             } else if (userCardValue > computerCardValue) {
+                System.out.println("User won the battle!");
                 player1.score++;
-                player1.playerCards.remove(userCard);
-                player2.playerCards.remove(computerCard);
             } else {
+                System.out.println("Computer won the battle!");
                 player2.score++;
-                player1.playerCards.remove(userCard);
-                player2.playerCards.remove(computerCard);
             }
+            player1.playerCards.remove(userCard);
+            player2.playerCards.remove(computerCard);
         }
             displayScore();
             compareCards();
@@ -51,17 +55,18 @@ public class CardTable {
     public void endGame() {
         Scanner input = new Scanner(System.in);
         System.out.println("Would you like to Play Again?  Type 1 and Enter");
-        try{
             int answer = input.nextInt();
             if (answer == 1) {
                 Game newGame = new Game();
                 newGame.setupGame(newGame);
             }
-        }
-        catch (Exception e){}
-
+            else{
+                System.out.println("Game over- goodbye!");
+                System.exit(0);
+            }
     }
 }
+
 
 
 
