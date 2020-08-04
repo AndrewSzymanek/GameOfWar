@@ -6,10 +6,12 @@ public class CardTable {
 
     Player player1;
     Player player2;
+    Game game;
 
-    public CardTable(Player player1, Player player2) {
+    public CardTable(Player player1, Player player2, Game game) {
         this.player1 = player1;
         this.player2 = player2;
+        this.game = game;
     }
 
    public void displayScore() {
@@ -20,6 +22,7 @@ public class CardTable {
         if
            (player1.playerCards.size() == 0 || player2.playerCards.size() == 0) {
             System.out.println("Game Over");
+            endGame();
         } else {
             Deck userCard = player1.flipCard();
             Deck computerCard = player2.flipCard();
@@ -40,6 +43,20 @@ public class CardTable {
             }
         }
             displayScore();
+            compareCards();
+    }
+
+    public void endGame() {
+        System.out.println("Would you like to Play Again?  Type Yes and Enter");
+        try{System.in.read();
+            String answer = String.valueOf(System.in.read());
+            if (answer.equals("Yes")) {
+                Game newGame = new Game();
+                newGame.setupGame(newGame);
+            }
+        }
+        catch (Exception e){}
+
     }
 }
 

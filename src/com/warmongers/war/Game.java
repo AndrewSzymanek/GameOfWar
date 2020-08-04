@@ -1,5 +1,6 @@
 package com.warmongers.war;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Game {
@@ -14,11 +15,12 @@ public class Game {
             if (mySelection >= HIGH_LEVEL && mySelection <= LOW_LEVEL)
             {
                 System.out.println("Prepare for War");
-                ArrayList<Deck> userCards = splitDeck(cardsToList()).get(0);
+                ArrayList<ArrayList<Deck>> deck = splitDeck(cardsToList());
+                ArrayList<Deck> userCards = deck.get(0);
                 User user = new User(userCards);
-                ArrayList<Deck> computerCards = splitDeck(cardsToList()).get(1);
+                ArrayList<Deck> computerCards = deck.get(1);
                 Computer computer = new Computer(computerCards);
-                CardTable cardTable = new CardTable(user, computer);
+                CardTable cardTable = new CardTable(user, computer, game);
                 cardTable.compareCards();
             }
             else
@@ -81,4 +83,16 @@ public class Game {
         cards.add(computerDeck);
         return cards;
     }
+//    public void endGame() {
+//        System.out.println("Would you like to Play Again?  Type Yes and Enter");
+//        try{System.in.read();
+//            String answer = String.valueOf(System.in.read());
+//            if (answer.equals("Yes")) {
+//                Game game = new Game();
+//                setupGame(game);
+//            }
+//        }
+//        catch (Exception e){}
+//
+//    }
 }
