@@ -1,6 +1,8 @@
 package com.warmongers.war;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class CardTable {
 
@@ -47,10 +49,11 @@ public class CardTable {
     }
 
     public void endGame() {
-        System.out.println("Would you like to Play Again?  Type Yes and Enter");
-        try{System.in.read();
-            String answer = String.valueOf(System.in.read());
-            if (answer.equals("Yes")) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Would you like to Play Again?  Type 1 and Enter");
+        try{
+            int answer = input.nextInt();
+            if (answer == 1) {
                 Game newGame = new Game();
                 newGame.setupGame(newGame);
             }
