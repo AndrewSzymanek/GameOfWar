@@ -24,6 +24,7 @@ public class CardTable {
         if
            (player1.playerCards.size() == 0 || player2.playerCards.size() == 0) {
             System.out.println("Game Over");
+            finalScore();
             endGame();
         } else {
             Deck userCard = player1.flipCard();
@@ -50,7 +51,21 @@ public class CardTable {
         }
             displayScore();
             compareCards();
+
     }
+
+    public void finalScore() {
+        if (player1.score == player2.score) {
+            System.out.println("You are both warmongers");
+        }
+       else if (player1.score > player2.score) {
+           System.out.println("user is the warmonger");
+       }
+       else {
+           System.out.println("Computer is a warmonger");
+
+           }
+       }
 
     public void endGame() {
         Scanner input = new Scanner(System.in);
