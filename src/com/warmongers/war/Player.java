@@ -6,9 +6,10 @@ public abstract class Player {
 
 
 
-    public int count = 0;
+    public int score = 0;
 
     public ArrayList<Deck> playerCards;
+
 
     public Deck flipCard() {
         return playerCards.get(0);
@@ -21,10 +22,10 @@ public abstract class Player {
     }
 
     public int getCount() {
-        return count;
+        return score;
     }
 
     public void setCount(int count) {
-        this.count = count;
+        this.score = count;
     }
 }

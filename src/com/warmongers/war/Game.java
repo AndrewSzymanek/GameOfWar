@@ -19,6 +19,7 @@ public class Game {
                 ArrayList<Deck> computerCards = splitDeck(cardsToList()).get(1);
                 Computer computer = new Computer(computerCards);
                 CardTable cardTable = new CardTable(user, computer);
+                cardTable.compareCards();
             }
             else
             {
