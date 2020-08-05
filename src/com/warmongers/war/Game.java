@@ -1,11 +1,34 @@
 package com.warmongers.war;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Game {
     private static final int HIGH_LEVEL = 1;
     private static final int LOW_LEVEL = 3;
+
+
+    public void displayBanner() {
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader("warmonger_banner.txt"));
+            Stream<String> lines = reader.lines();
+            lines.forEach(System.out::println);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            if (reader !=null) {
+                try { reader.close(); }
+                catch (IOException ignored) {}
+            }
+        }
+    }
 
     public void setupGame(Game game)
     {
