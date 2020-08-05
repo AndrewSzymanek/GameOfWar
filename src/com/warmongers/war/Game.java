@@ -30,7 +30,7 @@ public class Game {
         }
     }
 
-    public void setupGame(Game game)
+    public void setupGame(Game game) throws IOException
     {
 
        int mySelection = selection(game);
@@ -39,13 +39,13 @@ public class Game {
             if (mySelection >= HIGH_LEVEL && mySelection <= LOW_LEVEL)
             {
                 System.out.println("Prepare for War");
-                ArrayList<ArrayList<Deck>> deck = splitDeck(cardsToList());
+                ArrayList<ArrayList<Deck>> deck = splitDeck();
                 ArrayList<Deck> userCards = deck.get(0);
                 User user = new User(userCards);
                 ArrayList<Deck> computerCards = deck.get(1);
                 Computer computer = new Computer(computerCards);
                 CardTable cardTable = new CardTable(user, computer, game);
-                cardTable.compareCards();
+                    cardTable.compareCards();
             }
             else
             {
@@ -95,8 +95,8 @@ public class Game {
         return cardsToList();
     }
 
-    public ArrayList<ArrayList<Deck>> splitDeck(ArrayList<Deck> deck){
-        deck = cardsToList();
+    public ArrayList<ArrayList<Deck>> splitDeck(){
+        ArrayList<Deck> deck = cardsToList();
         ArrayList<ArrayList<Deck>> cards = new ArrayList<>();
         ArrayList<Deck> userDeck = new ArrayList<>();
         ArrayList<Deck> computerDeck = new ArrayList<>();

@@ -11,6 +11,7 @@ public class CardTable {
     Player player2;
     Game game;
 
+
     public CardTable(Player player1, Player player2, Game game) {
         this.player1 = player1;
         this.player2 = player2;
@@ -18,14 +19,14 @@ public class CardTable {
     }
 
    public void displayScore() {
-       System.out.println("Score is: Computer - " + player2.score + ", User - " + player1.score + ".");
+       System.out.println("Score is: Computer - " + player2.getScore() + ", User - " + player1.getScore() + ".");
        System.out.println("");
    }
 
-    public void compareCards() {
+    public void compareCards() throws IOException {
         if (player1.playerCards.size() == 0 || player2.playerCards.size() == 0) {
             System.out.println("Game Over");
-            finalScore();
+            determineWinner();
             endGame();
         }
         else {
@@ -41,10 +42,10 @@ public class CardTable {
                 player2.playerCards.remove(computerCard);
             } else if (userCardValue > computerCardValue) {
                 System.out.println("User won the battle!");
-                player1.score++;
+                player1.setScore();
             } else {
                 System.out.println("Computer won the battle!");
-                player2.score++;
+                player2.setScore();
             }
             player1.playerCards.remove(userCard);
             player2.playerCards.remove(computerCard);
@@ -53,15 +54,11 @@ public class CardTable {
         }
     }
 
-    public void removeCards(){
-
-    }
-
-    public void finalScore() {
-        if (player1.score == player2.score) {
+    public void determineWinner() {
+        if (player1.getScore() == player2.getScore()) {
             System.out.println("You are both warmongers");
         }
-       else if (player1.score > player2.score) {
+       else if (player1.getScore() > player2.getScore()) {
            System.out.println("User is the warmonger");
        }
        else {
@@ -69,7 +66,7 @@ public class CardTable {
            }
        }
 
-    public void endGame() {
+    public void endGame() throws IOException {
         Scanner input = new Scanner(System.in);
         System.out.println("Would you like to Play Again?  Type 1 and Enter");
             int answer = input.nextInt();

@@ -6,13 +6,15 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
-public class Client {
+public class Client{
     public static void main(String[] args) throws IOException {
-
         Game newGame = new Game();
         newGame.displayBanner();
-        newGame.setupGame(newGame);
-
-
+        try {
+            newGame.setupGame(newGame);
+        }
+        catch (IOException e){
+            throw new IOException(e.getMessage());
+        }
     }
 }

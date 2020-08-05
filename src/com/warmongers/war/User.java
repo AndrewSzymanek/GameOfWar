@@ -1,7 +1,10 @@
 package com.warmongers.war;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -17,10 +20,9 @@ public class User extends Player  {
         this.playerCards = userCards;
     }
 
-    public Deck flipCard() {
+    public Deck flipCard() throws IOException {
         System.out.println("Press Enter to Flip a Card");
-        try{System.in.read();}
-        catch (Exception e){}
+        System.in.read();
         return this.playerCards.get(0);
     }
 
