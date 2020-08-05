@@ -21,7 +21,6 @@ public class User extends Player  {
         System.out.println("Press Enter to Flip a Card");
         try{System.in.read();}
         catch (Exception e){}
-
         return this.playerCards.get(0);
     }
 

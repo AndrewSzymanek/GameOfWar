@@ -2,6 +2,7 @@ package com.warmongers.war;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
 
 public class CardTable {
@@ -18,27 +19,26 @@ public class CardTable {
 
    public void displayScore() {
        System.out.println("Score is: Computer - " + player2.score + ", User - " + player1.score + ".");
+       System.out.println("");
    }
 
     public void compareCards() {
-        if
-           (player1.playerCards.size() == 0 || player2.playerCards.size() == 0) {
+        if (player1.playerCards.size() == 0 || player2.playerCards.size() == 0) {
             System.out.println("Game Over");
             finalScore();
             endGame();
-        } else {
+        }
+        else {
             Deck userCard = player1.flipCard();
             Deck computerCard = player2.flipCard();
             System.out.println("User flipped: "+ userCard);
             System.out.println("Computer flipped: " + computerCard);
-            // display cards
             int userCardValue = userCard.getValue();
             int computerCardValue = computerCard.getValue();
             if (userCardValue == computerCardValue) {
                 System.out.println("You tied!");
                 player1.playerCards.remove(userCard);
                 player2.playerCards.remove(computerCard);
-                //compareCards();
             } else if (userCardValue > computerCardValue) {
                 System.out.println("User won the battle!");
                 player1.score++;
@@ -48,9 +48,12 @@ public class CardTable {
             }
             player1.playerCards.remove(userCard);
             player2.playerCards.remove(computerCard);
-        }
             displayScore();
             compareCards();
+        }
+    }
+
+    public void removeCards(){
 
     }
 
@@ -59,11 +62,10 @@ public class CardTable {
             System.out.println("You are both warmongers");
         }
        else if (player1.score > player2.score) {
-           System.out.println("user is the warmonger");
+           System.out.println("User is the warmonger");
        }
        else {
            System.out.println("Computer is a warmonger");
-
            }
        }
 
