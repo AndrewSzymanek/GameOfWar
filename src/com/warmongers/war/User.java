@@ -11,11 +11,6 @@ import java.util.List;
 
 public class User extends Player  {
 
-
-
-
-    // put constructor here that passes in collection of cards
-
     public User(ArrayList<Deck> userCards){
         this.playerCards = userCards;
     }
@@ -25,13 +20,4 @@ public class User extends Player  {
         System.in.read();
         return this.playerCards.get(0);
     }
-
-
-
-
-
-
-
-
-
 }
