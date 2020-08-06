@@ -1,16 +1,16 @@
 package com.warmongers.war;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Player {
 
     private int score = 0;
 
-    public ArrayList<Deck> playerCards;
+    public List<Card> playerCards;
 
 
-    public Deck flipCard() throws IOException {
+    public Card flipCard() throws IOException {
         return playerCards.get(0);
     }//default= flip top card
 

@@ -1,11 +1,5 @@
 package com.warmongers.war.Test;
 
-import com.warmongers.war.Deck;
-import com.warmongers.war.Game;
-import org.junit.Test;
-
-import java.util.ArrayList;
-
 import static org.junit.Assert.assertEquals;
 
 public class ClientTest {

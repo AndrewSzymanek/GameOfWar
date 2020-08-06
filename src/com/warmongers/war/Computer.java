@@ -1,11 +1,10 @@
 package com.warmongers.war;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 public class Computer extends Player{
 
-    public Computer(ArrayList<Deck> computerCards){
+    public Computer(List<Card> computerCards){
         this.playerCards = computerCards;
     }
 }

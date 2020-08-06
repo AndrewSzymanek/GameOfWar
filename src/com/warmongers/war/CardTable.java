@@ -1,8 +1,6 @@
 package com.warmongers.war;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Map;
 import java.util.Scanner;
 
 public class CardTable {
@@ -30,8 +28,8 @@ public class CardTable {
             endGame();
         }
         else {
-            Deck userCard = player1.flipCard();
-            Deck computerCard = player2.flipCard();
+            Card userCard = player1.flipCard();
+            Card computerCard = player2.flipCard();
             System.out.println("User flipped: "+ userCard);
             System.out.println("Computer flipped: " + computerCard);
             int userCardValue = userCard.getValue();
@@ -68,14 +66,14 @@ public class CardTable {
 
     public void endGame() throws IOException {
         Scanner input = new Scanner(System.in);
-        System.out.println("Would you like to Play Again?  Type 1 and Enter");
-            int answer = input.nextInt();
-            if (answer == 1) {
+        System.out.println("Would you like to Play Again?  Type Y and Enter");
+            String answer = input.nextLine();
+            if (answer.equals("Y") || answer.equals("y")) {
                 Game newGame = new Game();
                 newGame.setupGame(newGame);
             }
             else{
-                System.out.println("Game over- goodbye!");
+                System.out.println("When you have gathered up your armies, challenge me again!");
                 System.exit(0);
             }
     }

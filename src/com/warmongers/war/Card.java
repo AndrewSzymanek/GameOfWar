@@ -1,10 +1,6 @@
 package com.warmongers.war;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
-
-public enum Deck {
+public enum Card {
 
     TWO_SPADES(2),
     THREE_SPADES(3),
@@ -65,7 +61,7 @@ public enum Deck {
 
 
     // ctor
-    private Deck(int value){
+    private Card(int value){
         this.value = value;
     }
 

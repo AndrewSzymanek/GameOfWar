@@ -3,7 +3,6 @@ package com.warmongers.war;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -39,10 +38,10 @@ public class Game {
             if (mySelection >= HIGH_LEVEL && mySelection <= LOW_LEVEL)
             {
                 System.out.println("Prepare for War");
-                ArrayList<ArrayList<Deck>> deck = splitDeck();
-                ArrayList<Deck> userCards = deck.get(0);
+                List<List<Card>> deck = splitDeck();
+                List<Card> userCards = deck.get(0);
                 User user = new User(userCards);
-                ArrayList<Deck> computerCards = deck.get(1);
+                List<Card> computerCards = deck.get(1);
                 Computer computer = new Computer(computerCards);
                 CardTable cardTable = new CardTable(user, computer, game);
                     cardTable.compareCards();
@@ -64,52 +63,52 @@ public class Game {
 
     public int selection(Game game) {
 
-        System.out.println("Welcome to WarMongers card game \n Kindly select any of the Game plans.");
+        System.out.println("Welcome to WarMongers card game \n Press 1 and enter to declare war.");
         System.out.println("\t1.  52-Cards game ");
         //t2.  36-Cards game t3.  18-Cards game
         System.out.print("\tMake selection: ");
         char selection;
         Scanner s = new Scanner(System.in);
         selection = s.next().charAt(0);
-        System.out.println("\tYou have selected Game " + selection);
+        // System.out.println("\tYou have selected Game " + selection);
         return Integer.parseInt(String.valueOf(selection));
     }
 
-    public ArrayList<Deck> cardsToList(){
-        Deck [] deck = Deck.values();
-        ArrayList<Deck> cards = new ArrayList<>();
-        for(Deck card : deck){
+    public List<Card> cardsToList(){
+        Card[] deck = Card.values();
+        List<Card> cards = new ArrayList<>();
+        for(Card card : deck){
             cards.add(card);
         }
         Collections.shuffle(cards);
         return cards;
     }
 
-    public ArrayList<Deck> getCards(int selection){
+   /* public List<Card> getCards(int selection){
         if(selection == 2){
-            return new ArrayList<Deck>(cardsToList().subList(0,36));
+            return new ArrayList<Card>(cardsToList().subList(0,36));
         }
         else if(selection == 3){
-            return new ArrayList<Deck>(cardsToList().subList(0,18));
+            return new ArrayList<Card>(cardsToList().subList(0,18));
         }
         return cardsToList();
-    }
+    }*/
 
-    public ArrayList<ArrayList<Deck>> splitDeck(){
-        ArrayList<Deck> deck = cardsToList();
-        ArrayList<ArrayList<Deck>> cards = new ArrayList<>();
-        ArrayList<Deck> userDeck = new ArrayList<>();
-        ArrayList<Deck> computerDeck = new ArrayList<>();
-        for(int i = 0; i < deck.size(); i++){
+    private List<List<Card>> splitDeck(){
+        List<Card> card = cardsToList();
+        List<List<Card>> cards = new ArrayList<>();
+        List<Card> userCard = new ArrayList<>();
+        List<Card> computerCard = new ArrayList<>();
+        for(int i = 0; i < card.size(); i++){
             if(i % 2 == 0){
-                userDeck.add(deck.get(i));
+                userCard.add(card.get(i));
             }
             if(i % 2 != 0){
-                computerDeck.add(deck.get(i));
+                computerCard.add(card.get(i));
             }
         }
-        cards.add(userDeck);
-        cards.add(computerDeck);
+        cards.add(userCard);
+        cards.add(computerCard);
         return cards;
     }
 }
